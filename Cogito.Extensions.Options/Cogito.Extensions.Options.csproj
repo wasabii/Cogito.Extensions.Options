@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Various additions to Microsoft.Extensions.Options.</Description>
+    <Authors>Jerome Haltom</Authors>
+    <Company>Jerome Haltom</Company>
   </PropertyGroup>
 
   <ItemGroup>
