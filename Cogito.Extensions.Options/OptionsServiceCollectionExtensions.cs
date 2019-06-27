@@ -22,6 +22,8 @@ namespace Cogito.Extensions.Options
         {
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
+            if (configure == null)
+                throw new ArgumentNullException(nameof(configure));
 
             services.AddOptions();
             services.AddSingleton(p => (IConfigureOptions<TOptions>)new ConfigureNamedOptions<TOptions>(name, o => configure(p, o)));
