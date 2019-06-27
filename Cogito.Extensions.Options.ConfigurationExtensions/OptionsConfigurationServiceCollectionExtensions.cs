@@ -17,8 +17,24 @@ namespace Cogito.Extensions.Options
         /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
         /// <param name="name">The name of the options instance.</param>
         /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
-        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string name) where TOptions : class
-            => services.Configure<TOptions>(name, _ => { });
+        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string name)
+            where TOptions : class
+        {
+            return Configure<TOptions>(services, name, o => { });
+        }
+
+        /// <summary>
+        /// Registers a configuration instance which TOptions will bind against.
+        /// </summary>
+        /// <typeparam name="TOptions">The type of options being configured.</typeparam>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
+        /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
+        /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
+        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, Action<BinderOptions> configureBinder)
+            where TOptions : class
+        {
+            return Configure<TOptions>(services, Microsoft.Extensions.Options.Options.DefaultName, configureBinder);
+        }
 
         /// <summary>
         /// Registers a configuration instance which TOptions will bind against.
