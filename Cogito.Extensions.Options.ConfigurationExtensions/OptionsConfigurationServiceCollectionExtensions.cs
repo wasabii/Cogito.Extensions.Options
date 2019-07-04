@@ -18,15 +18,17 @@ namespace Cogito.Extensions.Options
         /// <param name="name">The name of the options instance.</param>
         /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
         /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
-        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string name, Action<BinderOptions> configureBinder)
+        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string name, string section, Action<BinderOptions> configureBinder)
             where TOptions : class
         {
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
+            if (section == null)
+                throw new ArgumentNullException(nameof(section));
 
             services.AddOptions();
             services.AddSingleton<IOptionsChangeTokenSource<TOptions>>(a => new ConfigurationChangeTokenSource<TOptions>(name, a.GetRequiredService<IConfigurationRoot>()));
-            return services.AddSingleton<IConfigureOptions<TOptions>>(a => new NamedConfigureFromConfigurationOptions<TOptions>(name, a.GetRequiredService<IConfigurationRoot>(), configureBinder));
+            return services.AddSingleton<IConfigureOptions<TOptions>>(a => new NamedConfigureFromConfigurationOptions<TOptions>(name, a.GetRequiredService<IConfigurationRoot>().GetSection(section), configureBinder));
         }
 
         /// <summary>
@@ -36,10 +38,10 @@ namespace Cogito.Extensions.Options
         /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
         /// <param name="name">The name of the options instance.</param>
         /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
-        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string name)
+        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string name, string section)
             where TOptions : class
         {
-            return Configure<TOptions>(services, name, o => { });
+            return Configure<TOptions>(services, name, section, o => { });
         }
 
         /// <summary>
@@ -49,10 +51,10 @@ namespace Cogito.Extensions.Options
         /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
         /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
         /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
-        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, Action<BinderOptions> configureBinder)
+        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string section, Action<BinderOptions> configureBinder)
             where TOptions : class
         {
-            return Configure<TOptions>(services, Microsoft.Extensions.Options.Options.DefaultName, configureBinder);
+            return Configure<TOptions>(services, Microsoft.Extensions.Options.Options.DefaultName, section, configureBinder);
         }
 
     }
