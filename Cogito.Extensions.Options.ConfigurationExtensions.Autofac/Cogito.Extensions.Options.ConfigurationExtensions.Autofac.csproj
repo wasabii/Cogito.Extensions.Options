@@ -5,7 +5,7 @@
     <Authors>Jerome Haltom</Authors>
     <Company>Jerome Haltom</Company>
     <Product>Cogito.Autofac</Product>
-    <Description>Various additions to Microsoft.Extensions.Options.</Description>
+    <Description>Various additions to Microsoft.Extensions.Options for Autofac.</Description>
     <Copyright>Jerome Haltom</Copyright>
     <PackageTags>autofac</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -15,8 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
+    <ProjectReference Include="..\Cogito.Extensions.Options.Autofac\Cogito.Extensions.Options.Autofac.csproj" />
+    <ProjectReference Include="..\Cogito.Extensions.Options.ConfigurationExtensions\Cogito.Extensions.Options.ConfigurationExtensions.csproj" />
   </ItemGroup>
 
 </Project>

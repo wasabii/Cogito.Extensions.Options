@@ -57,6 +57,19 @@ namespace Cogito.Extensions.Options
             return Configure<TOptions>(services, Microsoft.Extensions.Options.Options.DefaultName, section, configureBinder);
         }
 
+        /// <summary>
+        /// Registers a configuration instance which TOptions will bind against.
+        /// </summary>
+        /// <typeparam name="TOptions">The type of options being configured.</typeparam>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
+        /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
+        /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
+        public static IServiceCollection Configure<TOptions>(this IServiceCollection services, string section)
+            where TOptions : class
+        {
+            return Configure<TOptions>(services, Microsoft.Extensions.Options.Options.DefaultName, section);
+        }
+
     }
 
 }

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.9.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cogito.Extensions.Options.Autofac\Cogito.Extensions.Options.Autofac.csproj" />
+    <ProjectReference Include="..\Cogito.Extensions.Options.ConfigurationExtensions.Autofac\Cogito.Extensions.Options.ConfigurationExtensions.Autofac.csproj" />
+    <ProjectReference Include="..\Cogito.Extensions.Options.ConfigurationExtensions\Cogito.Extensions.Options.ConfigurationExtensions.csproj" />
+    <ProjectReference Include="..\Cogito.Extensions.Options\Cogito.Extensions.Options.csproj" />
+  </ItemGroup>
+
+</Project>
