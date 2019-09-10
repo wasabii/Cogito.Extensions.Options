@@ -34,9 +34,31 @@ namespace Cogito.Extensions.Options.ConfigurationExtensions.Autofac
         /// <summary>
         /// Registers a configuration instance which TOptions will bind against.
         /// </summary>
+        /// <param name="builder">The <see cref="ContainerBuilder"/> to add the services to.</param>
+        /// <param name="optionsType">The type of options being configured.</param>
+        /// <param name="name">The name of the options instance.</param>
+        /// <param name="section"></param>
+        /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
+        /// <returns>The <see cref="ContainerBuilder"/> so that additional calls can be chained.</returns>
+        public static ContainerBuilder Configure(this ContainerBuilder builder, Type optionsType, string name, string section, Action<BinderOptions> configureBinder)
+        {
+            if (optionsType is null)
+                throw new ArgumentNullException(nameof(optionsType));
+            if (builder == null)
+                throw new ArgumentNullException(nameof(builder));
+            if (section == null)
+                throw new ArgumentNullException(nameof(section));
+
+            return builder.Populate(s => s.Configure(optionsType, name, section, configureBinder));
+        }
+
+        /// <summary>
+        /// Registers a configuration instance which TOptions will bind against.
+        /// </summary>
         /// <typeparam name="TOptions">The type of options being configured.</typeparam>
         /// <param name="builder">The <see cref="ContainerBuilder"/> to add the services to.</param>
         /// <param name="name">The name of the options instance.</param>
+        /// <param name="section">The section of the options instance.</param>
         /// <returns>The <see cref="ContainerBuilder"/> so that additional calls can be chained.</returns>
         public static ContainerBuilder Configure<TOptions>(this ContainerBuilder builder, string name, string section)
             where TOptions : class
@@ -47,6 +69,26 @@ namespace Cogito.Extensions.Options.ConfigurationExtensions.Autofac
                 throw new ArgumentNullException(nameof(section));
 
             return builder.Populate(s => s.Configure<TOptions>(name, section));
+        }
+
+        /// <summary>
+        /// Registers a configuration instance which TOptions will bind against.
+        /// </summary>
+        /// <param name="builder">The <see cref="ContainerBuilder"/> to add the services to.</param>
+        /// <param name="optionsType">The type of options being configured.</param>
+        /// <param name="name">The name of the options instance.</param>
+        /// <param name="section">The section of the options instance.</param>
+        /// <returns>The <see cref="ContainerBuilder"/> so that additional calls can be chained.</returns>
+        public static ContainerBuilder Configure(this ContainerBuilder builder, Type optionsType, string name, string section)
+        {
+            if (builder == null)
+                throw new ArgumentNullException(nameof(builder));
+            if (optionsType is null)
+                throw new ArgumentNullException(nameof(optionsType));
+            if (section == null)
+                throw new ArgumentNullException(nameof(section));
+
+            return builder.Populate(s => s.Configure(optionsType, name, section));
         }
 
         /// <summary>
@@ -72,6 +114,28 @@ namespace Cogito.Extensions.Options.ConfigurationExtensions.Autofac
         /// <summary>
         /// Registers a configuration instance which TOptions will bind against.
         /// </summary>
+        /// <param name="builder">The <see cref="ContainerBuilder"/> to add the services to.</param>
+        /// <param name="optionsType">The type of options being configured.</param>
+        /// <param name="section"></param>
+        /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
+        /// <returns>The <see cref="ContainerBuilder"/> so that additional calls can be chained.</returns>
+        public static ContainerBuilder Configure(this ContainerBuilder builder, Type optionsType, string section, Action<BinderOptions> configureBinder)
+        {
+            if (builder == null)
+                throw new ArgumentNullException(nameof(builder));
+            if (optionsType is null)
+                throw new ArgumentNullException(nameof(optionsType));
+            if (section == null)
+                throw new ArgumentNullException(nameof(section));
+            if (configureBinder == null)
+                throw new ArgumentNullException(nameof(configureBinder));
+
+            return builder.Populate(s => s.Configure(optionsType, section, configureBinder));
+        }
+
+        /// <summary>
+        /// Registers a configuration instance which TOptions will bind against.
+        /// </summary>
         /// <typeparam name="TOptions">The type of options being configured.</typeparam>
         /// <param name="builder">The <see cref="ContainerBuilder"/> to add the services to.</param>
         /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
@@ -85,6 +149,25 @@ namespace Cogito.Extensions.Options.ConfigurationExtensions.Autofac
                 throw new ArgumentNullException(nameof(section));
 
             return builder.Populate(s => s.Configure<TOptions>(section));
+        }
+
+        /// <summary>
+        /// Registers a configuration instance which TOptions will bind against.
+        /// </summary>
+        /// <param name="builder">The <see cref="ContainerBuilder"/> to add the services to.</param>
+        /// <param name="optionsType">The type of options being configured.</param>
+        /// <param name="configureBinder">Used to configure the <see cref="BinderOptions"/>.</param>
+        /// <returns>The <see cref="ContainerBuilder"/> so that additional calls can be chained.</returns>
+        public static ContainerBuilder Configure(this ContainerBuilder builder, Type optionsType, string section)
+        {
+            if (builder == null)
+                throw new ArgumentNullException(nameof(builder));
+            if (optionsType is null)
+                throw new ArgumentNullException(nameof(optionsType));
+            if (section == null)
+                throw new ArgumentNullException(nameof(section));
+
+            return builder.Populate(s => s.Configure(optionsType, section));
         }
 
     }
