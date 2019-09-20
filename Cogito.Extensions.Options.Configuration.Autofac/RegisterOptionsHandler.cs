@@ -6,7 +6,7 @@ using Autofac;
 
 using Cogito.Autofac;
 
-namespace Cogito.Extensions.Options.ConfigurationExtensions.Autofac
+namespace Cogito.Extensions.Options.Configuration.Autofac
 {
 
     /// <summary>

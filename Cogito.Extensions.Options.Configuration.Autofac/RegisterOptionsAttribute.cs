@@ -2,7 +2,7 @@
 
 using Cogito.Autofac;
 
-namespace Cogito.Extensions.Options.ConfigurationExtensions.Autofac
+namespace Cogito.Extensions.Options.Configuration.Autofac
 {
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]

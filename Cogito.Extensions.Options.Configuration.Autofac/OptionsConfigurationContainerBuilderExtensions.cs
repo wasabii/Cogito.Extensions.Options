@@ -6,7 +6,7 @@ using Cogito.Autofac.DependencyInjection;
 
 using Microsoft.Extensions.Configuration;
 
-namespace Cogito.Extensions.Options.ConfigurationExtensions.Autofac
+namespace Cogito.Extensions.Options.Configuration.Autofac
 {
 
     public static class OptionsConfigurationContainerBuilderExtensions

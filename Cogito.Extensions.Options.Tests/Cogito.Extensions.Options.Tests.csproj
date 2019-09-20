@@ -13,8 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cogito.Extensions.Options.Autofac\Cogito.Extensions.Options.Autofac.csproj" />
-    <ProjectReference Include="..\Cogito.Extensions.Options.ConfigurationExtensions.Autofac\Cogito.Extensions.Options.ConfigurationExtensions.Autofac.csproj" />
-    <ProjectReference Include="..\Cogito.Extensions.Options.ConfigurationExtensions\Cogito.Extensions.Options.ConfigurationExtensions.csproj" />
+    <ProjectReference Include="..\Cogito.Extensions.Options.Configuration.Autofac\Cogito.Extensions.Options.Configuration.Autofac.csproj" />
     <ProjectReference Include="..\Cogito.Extensions.Options\Cogito.Extensions.Options.csproj" />
   </ItemGroup>
 

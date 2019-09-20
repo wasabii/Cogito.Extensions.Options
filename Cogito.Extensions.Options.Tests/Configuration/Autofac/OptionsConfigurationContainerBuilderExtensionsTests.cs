@@ -2,7 +2,7 @@
 
 using Autofac;
 using Cogito.Autofac;
-using Cogito.Extensions.Options.ConfigurationExtensions.Autofac;
+using Cogito.Extensions.Options.Configuration.Autofac;
 
 using FluentAssertions;
 
@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Cogito.Extensions.Options.Tests.ConfigurationExtensions.Autofac
+namespace Cogito.Extensions.Options.Tests.Configuration.Autofac
 {
 
     [TestClass]
