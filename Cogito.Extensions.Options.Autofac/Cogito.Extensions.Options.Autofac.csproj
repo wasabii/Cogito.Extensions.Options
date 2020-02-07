@@ -2,16 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Jerome Haltom</Authors>
-    <Company>Jerome Haltom</Company>
-    <Product>Cogito.Autofac</Product>
     <Description>Various additions to Microsoft.Extensions.Options for Autofac.</Description>
-    <Copyright>Jerome Haltom</Copyright>
-    <PackageTags>autofac</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.0.1</Version>
-    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.Autofac</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
