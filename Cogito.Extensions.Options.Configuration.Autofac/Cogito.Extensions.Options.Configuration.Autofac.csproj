@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>Various additions to Microsoft.Extensions.Options for Autofac.</Description>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+        <Description>Various additions to Microsoft.Extensions.Options for Autofac.</Description>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.Extensions.Options.Autofac\Cogito.Extensions.Options.Autofac.csproj" />
-    <ProjectReference Include="..\Cogito.Extensions.Options.Configuration\Cogito.Extensions.Options.Configuration.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.Extensions.Options.Autofac\Cogito.Extensions.Options.Autofac.csproj" />
+        <ProjectReference Include="..\Cogito.Extensions.Options.Configuration\Cogito.Extensions.Options.Configuration.csproj" />
+    </ItemGroup>
 
 </Project>

@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>Various additions to Microsoft.Extensions.Options for Autofac.</Description>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+        <Description>Various additions to Microsoft.Extensions.Options for Autofac.</Description>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Cogito.Autofac.DependencyInjection" Version="2.0.2" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Cogito.Autofac.DependencyInjection" Version="2.0.4" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.Extensions.Options\Cogito.Extensions.Options.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.Extensions.Options\Cogito.Extensions.Options.csproj" />
+    </ItemGroup>
 
 </Project>
