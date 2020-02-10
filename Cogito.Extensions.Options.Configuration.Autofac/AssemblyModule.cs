@@ -1,11 +1,8 @@
 ﻿using Autofac;
 
 using Cogito.Autofac;
-using Cogito.Autofac.DependencyInjection;
 
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Cogito.Extensions.Options.Autofac
+namespace Cogito.Extensions.Options.Configuration.Autofac
 {
 
     public class AssemblyModule : ModuleBase
@@ -13,7 +10,7 @@ namespace Cogito.Extensions.Options.Autofac
 
         protected override void Register(ContainerBuilder builder)
         {
-            builder.Populate(s => s.AddOptions());
+            builder.RegisterModule<Cogito.Extensions.Options.Autofac.AssemblyModule>();
             builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
         }
 
