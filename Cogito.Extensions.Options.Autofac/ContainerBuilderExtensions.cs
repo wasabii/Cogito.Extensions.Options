@@ -29,6 +29,7 @@ namespace Cogito.Extensions.Options.Autofac
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>(name, (c, o) => configure(c.GetRequiredService<IComponentContext>(), o)));
         }
 
@@ -48,6 +49,7 @@ namespace Cogito.Extensions.Options.Autofac
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>(name, configure));
         }
 
@@ -66,6 +68,7 @@ namespace Cogito.Extensions.Options.Autofac
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>((c, o) => configure(c.GetRequiredService<IComponentContext>(), o)));
         }
 
@@ -84,6 +87,7 @@ namespace Cogito.Extensions.Options.Autofac
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>(configure));
         }
 
@@ -103,6 +107,7 @@ namespace Cogito.Extensions.Options.Autofac
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.PostConfigure<TOptions>(name, (c, o) => configure(c.GetRequiredService<IComponentContext>(), o)));
         }
 
@@ -122,6 +127,7 @@ namespace Cogito.Extensions.Options.Autofac
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.PostConfigure<TOptions>(name, configure));
         }
 
@@ -135,6 +141,7 @@ namespace Cogito.Extensions.Options.Autofac
         public static ContainerBuilder PostConfigure<TOptions>(this ContainerBuilder builder, Action<IComponentContext, TOptions> configure)
             where TOptions : class
         {
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.PostConfigure<TOptions>((c, o) => configure(c.GetRequiredService<IComponentContext>(), o)));
         }
 
@@ -148,6 +155,7 @@ namespace Cogito.Extensions.Options.Autofac
         public static ContainerBuilder PostConfigure<TOptions>(this ContainerBuilder builder, Action<TOptions> configure)
             where TOptions : class
         {
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.PostConfigure<TOptions>(configure));
         }
 
