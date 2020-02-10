@@ -28,6 +28,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (section == null)
                 throw new ArgumentNullException(nameof(section));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>(name, section, configureBinder));
         }
 
@@ -49,6 +50,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (section == null)
                 throw new ArgumentNullException(nameof(section));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure(optionsType, name, section, configureBinder));
         }
 
@@ -68,6 +70,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (section == null)
                 throw new ArgumentNullException(nameof(section));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>(name, section));
         }
 
@@ -88,6 +91,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (section == null)
                 throw new ArgumentNullException(nameof(section));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure(optionsType, name, section));
         }
 
@@ -108,6 +112,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (configureBinder == null)
                 throw new ArgumentNullException(nameof(configureBinder));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>(section, configureBinder));
         }
 
@@ -130,6 +135,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (configureBinder == null)
                 throw new ArgumentNullException(nameof(configureBinder));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure(optionsType, section, configureBinder));
         }
 
@@ -148,6 +154,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (section == null)
                 throw new ArgumentNullException(nameof(section));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure<TOptions>(section));
         }
 
@@ -167,6 +174,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
             if (section == null)
                 throw new ArgumentNullException(nameof(section));
 
+            builder.RegisterModule<AssemblyModule>();
             return builder.Populate(s => s.Configure(optionsType, section));
         }
 
