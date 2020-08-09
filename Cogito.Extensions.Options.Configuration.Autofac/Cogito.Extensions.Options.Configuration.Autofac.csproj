@@ -4,7 +4,16 @@
         <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
         <Description>Various additions to Microsoft.Extensions.Options for Autofac.</Description>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    </PropertyGroup>
+    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
     <ItemGroup>
         <PackageReference Include="Cogito.Extensions.Configuration.Autofac" Version="2.1.8" />
