@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Cogito.Extensions.Options
+namespace Cogito.Extensions.Options.Configuration
 {
 
     public static class OptionsConfigurationServiceCollectionExtensions

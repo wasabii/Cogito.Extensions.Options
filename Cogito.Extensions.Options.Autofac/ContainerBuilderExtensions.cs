@@ -4,7 +4,6 @@ using Autofac;
 
 using Cogito.Autofac.DependencyInjection;
 
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Cogito.Extensions.Options.Autofac
