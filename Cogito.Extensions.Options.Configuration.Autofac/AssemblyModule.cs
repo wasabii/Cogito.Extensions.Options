@@ -10,6 +10,7 @@ namespace Cogito.Extensions.Options.Configuration.Autofac
 
         protected override void Register(ContainerBuilder builder)
         {
+            builder.RegisterModule<Cogito.Extensions.Configuration.Autofac.AssemblyModule>();
             builder.RegisterModule<Cogito.Extensions.Options.Autofac.AssemblyModule>();
             builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
         }

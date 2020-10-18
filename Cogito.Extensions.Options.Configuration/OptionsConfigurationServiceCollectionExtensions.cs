@@ -28,8 +28,8 @@ namespace Cogito.Extensions.Options.Configuration
                 throw new ArgumentNullException(nameof(section));
 
             services.AddOptions();
-            services.AddSingleton<IOptionsChangeTokenSource<TOptions>>(a => new ConfigurationChangeTokenSource<TOptions>(name, a.GetRequiredService<IConfigurationRoot>()));
-            services.AddSingleton<IConfigureOptions<TOptions>>(a => new NamedConfigureFromConfigurationOptions<TOptions>(name, a.GetRequiredService<IConfigurationRoot>().GetSection(section), configureBinder));
+            services.AddSingleton<IOptionsChangeTokenSource<TOptions>>(a => new ConfigurationChangeTokenSource<TOptions>(name, a.GetRequiredService<IConfiguration>()));
+            services.AddSingleton<IConfigureOptions<TOptions>>(a => new NamedConfigureFromConfigurationOptions<TOptions>(name, a.GetRequiredService<IConfiguration>().GetSection(section), configureBinder));
             return services;
         }
 
@@ -52,8 +52,8 @@ namespace Cogito.Extensions.Options.Configuration
                 throw new ArgumentNullException(nameof(section));
 
             services.AddOptions();
-            services.AddSingleton(typeof(IOptionsChangeTokenSource<>).MakeGenericType(optionsType), a => Activator.CreateInstance(typeof(ConfigurationChangeTokenSource<>).MakeGenericType(optionsType), name, a.GetRequiredService<IConfigurationRoot>()));
-            services.AddSingleton(typeof(IConfigureOptions<>).MakeGenericType(optionsType), a => Activator.CreateInstance(typeof(NamedConfigureFromConfigurationOptions<>).MakeGenericType(optionsType), name, a.GetRequiredService<IConfigurationRoot>().GetSection(section), configureBinder));
+            services.AddSingleton(typeof(IOptionsChangeTokenSource<>).MakeGenericType(optionsType), a => Activator.CreateInstance(typeof(ConfigurationChangeTokenSource<>).MakeGenericType(optionsType), name, a.GetRequiredService<IConfiguration>()));
+            services.AddSingleton(typeof(IConfigureOptions<>).MakeGenericType(optionsType), a => Activator.CreateInstance(typeof(NamedConfigureFromConfigurationOptions<>).MakeGenericType(optionsType), name, a.GetRequiredService<IConfiguration>().GetSection(section), configureBinder));
             return services;
         }
 
